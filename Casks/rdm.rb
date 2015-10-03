@@ -1,9 +1,13 @@
-class Rdm < Cask
-  version '0.7.5'
-  sha256 'aeae3aa51b140f451ce7f97d02c81d6fe89f6d17957c7e9345270c64b03604d7'
+cask :v1 => 'rdm' do
+  version '0.8.0-2540'
+  sha256 'c9b52b65e11b5a7eb240fdd5741b274cf461fc54a3e32b684e157ec713b69436'
 
-  url 'https://github.com/uglide/RedisDesktopManager/releases/download/0.7.5/redis-desktop-manager-0.7.5.dmg'
+  # github.com is the official download host per the vendor homepage
+  url "https://github.com/uglide/RedisDesktopManager/releases/download/#{version.sub(%r{-.*},'')}-rc4/redis-desktop-manager-#{version}.dmg"
+  appcast 'https://github.com/uglide/RedisDesktopManager/releases.atom'
+  name 'Redis Desktop Manager'
   homepage 'http://redisdesktop.com'
+  license :gpl
 
-  link 'rdm.app'
+  app 'rdm.app'
 end

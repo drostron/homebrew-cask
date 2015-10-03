@@ -1,15 +1,21 @@
-class Cdock < Cask
-  version '4.2'
-  sha256 '586f1a8972e12b4d71439ef915eca1396d915e28efbcee66ce84bee921aeb0ad'
+cask :v1 => 'cdock' do
+  version '9.5'
+  sha256 'db92068d04b538bf1fb20f7b5d79151ce619befefb20929178a143a73f4e99cc'
 
-  url 'https://downloads.sourceforge.net/project/cdock/cDock/cDock_v4.2.zip'
-  homepage 'http://sourceforge.net/projects/cdock'
+  url "https://github.com/w0lfschild/cDock/releases/download/v#{version}/cDock_v#{version}.zip"
+  appcast 'https://github.com/w0lfschild/cDock/releases.atom',
+          :sha256 => '9a2877e8cf8c466b2dbf5e3e063f27b663c91b54bb2c108548d52fb18fabc010'
+  name 'cDock'
+  homepage 'http://w0lfschild.github.io/pages/cdock.html'
+  license :bsd
 
-  link 'cDock.app'
-  caveats do
-    puts <<-EOS.undent
-    Currently the cask '#{@cask}' depends on the cask easysimbl so
-    in order to use '#{@cask}' do 'brew cask install easysimbl'
-    EOS
-  end
+  app 'cDock.app'
+
+  caveats <<-EOS.undent
+    #{token} will only run from within /Applications,
+    and will request to be moved at launch.
+  EOS
+
+  depends_on :cask => 'easysimbl'
+  depends_on :macos => '>= :mavericks'
 end

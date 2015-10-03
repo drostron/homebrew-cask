@@ -1,9 +1,13 @@
-class Gingr < Cask
-  version '1.0'
-  sha256 '6cc53cbb2b3069bd4dd397a8d9b0ce6251a95a3833e371a69ee3dd3d1555b87c'
+cask :v1 => 'gingr' do
+  version '1.2'
+  sha256 '27ba08606ae3f743ffdbcb6d554048ab3a7560087577f10503a0f5cd0227f9d3'
 
-  url "https://github.com/marbl/gingr/releases/download/v#{version}/gingr-OSX64.app.zip"
-  homepage 'http://harvest.readthedocs.org/en/latest/content/gingr.html'
+  # github.com is the official download host per the vendor homepage
+  url "https://github.com/marbl/gingr/releases/download/v#{version}/gingr-OSX64-v#{version}.zip"
+  appcast 'https://github.com/marbl/gingr/releases.atom'
+  name 'Gingr'
+  homepage 'https://harvest.readthedocs.org/en/latest/content/gingr.html'
+  license :bsd
 
-  link 'gingr-OSX64.app', :target => 'Gingr.app'
+  app 'Gingr.app'
 end

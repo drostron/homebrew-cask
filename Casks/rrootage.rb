@@ -1,9 +1,11 @@
-class Rrootage < Cask
-  version '0.23.7'
-  sha256 '466bec698ba02a38601e9de3e98373aea08e2f35ff7341cd0df35355cc03c134'
+cask :v1 => 'rrootage' do
+  version :latest
+  sha256 :no_check
 
-  url 'http://workram.com/archives/rRootage-for-OS-X-0.23.7.dmg'
+  url 'https://workram.com/downloads.php?f=rRootage', :referer => 'https://workram.com/games/rrootage'
+  name 'rRootage'
   homepage 'http://workram.com/games/rrootage/'
+  license :bsd
 
-  link 'rRootage.app'
+  app 'rRootage.app'
 end

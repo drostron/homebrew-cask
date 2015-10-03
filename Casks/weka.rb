@@ -1,9 +1,12 @@
-class Weka < Cask
-  version '3.6.11'
-  sha256 '51643edc349f46d76b96460ab16b97cf8e2d63ae6a4f6e5ba4c89dd404b56cea'
+cask :v1 => 'weka' do
+  version '3.6.13'
+  sha256 '1a070b1e36f927a89cf71590222560019e2bc1533ba4caca50543cc8bae3c631'
 
-  url 'https://downloads.sourceforge.net/sourceforge/weka/weka-3-6-11-oracle-jvm.dmg'
+  # sourceforge.net is the official download host per the vendor homepage
+  url "http://downloads.sourceforge.net/sourceforge/weka/weka-#{version.gsub('.','-')}-oracle-jvm.dmg"
+  name 'Weka'
   homepage 'http://www.cs.waikato.ac.nz/ml/weka/'
+  license :gpl
 
-  link 'weka-3-6-11-oracle-jvm.app'
+  app "weka-#{version.gsub('.','-')}-oracle-jvm.app"
 end

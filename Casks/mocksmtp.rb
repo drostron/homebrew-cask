@@ -1,9 +1,11 @@
-class Mocksmtp < Cask
-  version 'latest'
+cask :v1 => 'mocksmtp' do
+  version :latest
   sha256 :no_check
 
   url 'http://mocksmtpapp.com/MockSmtp.zip'
+  name 'MockSMTP'
   homepage 'http://mocksmtpapp.com/'
+  license :commercial
 
-  link 'MockSmtp.app'
+  app 'MockSmtp.app'
 end

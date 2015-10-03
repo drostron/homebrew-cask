@@ -1,9 +1,11 @@
-class Insync < Cask
-  version '1.0.29.31750'
-  sha256 '2b0000066f2941c59da4b2e9c2b2f6f7a63829d1d2743342f7e7ef658b13dd2c'
+cask :v1 => 'insync' do
+  version '1.2.16.35181'
+  sha256 'a80f07bd191228ba283a5b975326cf4d62dce28c600753ecadf66f00d361a22f'
 
-  url 'http://s.insynchq.com/builds/Insync-1.0.29.31750.dmg'
-  homepage 'https://insynchq.com/'
+  url "http://s.insynchq.com/builds/Insync-#{version}.dmg"
+  name 'Insync'
+  homepage 'https://www.insynchq.com/'
+  license :closed
 
-  link 'Insync.app'
+  app 'Insync.app'
 end

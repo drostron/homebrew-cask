@@ -1,10 +1,12 @@
-class Macmoney < Cask
-  version '3.6.6'
-  sha256 '34168a92ab65daf5280c879887011e30e9a3e01398f5402a32034049932a075b'
+cask :v1 => 'macmoney' do
+  version '3.7.1'
+  sha256 '65c24dafbb957f2f050c10dafe39756f04a1dc12e2d8f3016e00a5347dcb5171'
 
-  url 'http://www.devon.riceball.net/downloads/macmoney36.zip'
+  url 'http://www.devon.riceball.net/downloads/macmoney37.zip'
+  name 'MacMoney'
   homepage 'http://www.devon.riceball.net/display.php?file=m01'
+  license :commercial
 
-  nested_container 'MacMoney_3.6.6.dmg'
-  link 'MacMoney.app'
+  container :nested => "MacMoney_#{version}.dmg"
+  app 'MacMoney.app'
 end

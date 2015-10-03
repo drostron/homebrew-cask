@@ -1,9 +1,11 @@
-class Bathyscaphe < Cask
-  version '2.4.2'
-  sha256 'fe7b8deed01a75b09cce9d4bd1f06a60106adfd831dfbe07782bf19fb1a67bd1'
+cask :v1 => 'bathyscaphe' do
+  version '253-v826'
+  sha256 '63d2327293362ba707cd963668cb3225ab8a51bb361ad2a6e2a5f298feea9892'
 
-  url 'http://dl.sourceforge.jp/bathyscaphe/61374/BathyScaphe-242-v648.dmg'
-  homepage 'http://bathyscaphe.sourceforge.jp/'
+  url "https://bitbucket.org/bathyscaphe/public/downloads/BathyScaphe-#{version}.dmg"
+  name 'BathyScaphe'
+  homepage 'http://bathyscaphe.bitbucket.org/'
+  license :oss
 
-  link 'BathyScaphe.app'
+  app 'BathyScaphe.app'
 end

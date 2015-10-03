@@ -1,11 +1,14 @@
-class WacomBambooTablet < Cask
-  version '5.3.3-3'
-  sha256 '6ba4469ad70d779c4dc95e1ba71469325932601bffda74d6c1d7e6bb49d0fe70'
+cask :v1 => 'wacom-bamboo-tablet' do
+  version '5.3.6-6'
+  sha256 '3eb78dda089da8f4019782502fe59529a5e00afae8c89005d9f5cc9e04e2283e'
 
-  url 'http://cdn.wacom.com/U/Drivers/Mac/Consumer/533/PenTablet_5.3.3-3.dmg'
+  url "http://cdn.wacom.com/u/productsupport/drivers/mac/consumer/pentablet_#{version}.dmg"
+  name 'Wacom Bamboo Tablet'
   homepage 'http://us.wacom.com/en/support/drivers'
+  license :unknown    # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
 
-  install 'Install Wacom Tablet.pkg'
+  pkg 'Install Wacom Tablet.pkg'
+
   uninstall :launchctl => 'com.wacom.pentablet',
     :quit => [
       'com.wacom.TabletDriver',

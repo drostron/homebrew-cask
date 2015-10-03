@@ -1,15 +1,17 @@
-class PlexHomeTheater < Cask
-  version '1.2.1.314'
+cask :v1 => 'plex-home-theater' do
+  version '1.4.1.469-47a90f01'
 
   if Hardware::CPU.is_32_bit?
-    sha256 '87954578b4aa1ec93876115967b0da61d6fa47f3f1125743a55f688366d56860'
-    url 'http://downloads.plexapp.com/plex-home-theater/1.2.1.314-7cb0133e/PlexHomeTheater-1.2.1.314-7cb0133e-macosx-i386.zip'
+    sha256 'bcf40c09c23104d67c45381199a19a4e7c4147fb8a11508faff34d3fd4f6560b'
+    url "https://downloads.plex.tv/plex-home-theater/#{version}/PlexHomeTheater-#{version}-macosx-i386.zip"
   else
-    sha256 '0e243ca7112cccd11f75bf799ff21a69413dc1eca6652f934ed456ac54fab5ae'
-    url 'http://downloads.plexapp.com/plex-home-theater/1.2.1.314-7cb0133e/PlexHomeTheater-1.2.1.314-7cb0133e-macosx-x86_64.zip'
+    sha256 'dd2babcfd023c03117e46a5e653b60bbd0567fe25328b778e09004b11e686995'
+    url "https://downloads.plex.tv/plex-home-theater/#{version}/PlexHomeTheater-#{version}-macosx-x86_64.zip"
   end
 
+  name 'Plex Home Theater'
   homepage 'https://plex.tv'
+  license :unknown    # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
 
-  link 'Plex Home Theater.app'
+  app 'Plex Home Theater.app'
 end

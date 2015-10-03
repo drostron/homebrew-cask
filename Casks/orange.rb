@@ -1,9 +1,11 @@
-class Orange < Cask
-  version '2.7.6-11994'
-  sha256 '3a46e41bfc3c6a5f799b47239d47a85a2815b466af3a770b7a1c2145dc8b7808'
+cask :v1 => 'orange' do
+  version '2.7.8-7887ad2'
+  sha256 '312274a81c510227696dd655cc14a1fedd7029f58b67118a97ac7526af18608d'
 
-  url 'http://orange.biolab.si/download/Orange-2.7.6-11994.dmg'
+  url "http://orange.biolab.si/download/files/Orange-#{version}.dmg"
+  name 'Orange'
   homepage 'http://orange.biolab.si/'
+  license :gpl
 
-  link 'Orange.app'
+  app 'Orange.app'
 end

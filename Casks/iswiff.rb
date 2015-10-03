@@ -1,9 +1,11 @@
-class Iswiff < Cask
-  version 'latest'
+cask :v1 => 'iswiff' do
+  version :latest
   sha256 :no_check
 
   url 'http://echoone.com/iswiff/iSwiff.dmg'
+  name 'iSwiff'
   homepage 'http://echoone.com/iswiff/'
+  license :gratis
 
-  link 'iSwiff.app'
+  app 'iSwiff.app'
 end

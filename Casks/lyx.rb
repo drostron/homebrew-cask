@@ -1,9 +1,13 @@
-class Lyx < Cask
-  version '2.1.1'
-  sha256 '6e354ef25b2b4b0b46f1c95d048bef93917b794d227d841f03c0c5d1002ba923'
+cask :v1 => 'lyx' do
+  version '2.1.4'
+  sha256 'a89e0c90cf0fe5e974ec3eaa241403b1074878430f2f81552e62fb8f3b157597'
 
-  url 'ftp://ftp.lyx.org/pub/lyx/bin/2.1.1/LyX-2.1.1+qt4-x86_64-cocoa.dmg'
+  url "ftp://ftp.lyx.org/pub/lyx/bin/#{version}/LyX-#{version}+qt4-cocoa.dmg"
+  gpg "#{url}.sig",
+      :key_id => 'de7a44fac7fb382d'
+  name 'LyX'
   homepage 'http://www.lyx.org'
+  license :gpl
 
-  link 'LyX.app'
+  app 'LyX.app'
 end

@@ -1,9 +1,11 @@
-class Foxmail < Cask
-  version 'latest'
+cask :v1 => 'foxmail' do
+  version :latest
   sha256 :no_check
 
   url 'http://www.foxmail.com/mac/download'
+  name 'Foxmail'
   homepage 'http://www.foxmail.com'
+  license :gratis
 
-  link 'Foxmail.app'
+  app 'Foxmail.app'
 end

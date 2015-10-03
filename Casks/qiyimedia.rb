@@ -1,9 +1,15 @@
-class Qiyimedia < Cask
-  version '2.6.0'
-  sha256 '9d66ba83afa84decb5b1a8a5f0032c6f1aae24d05ddf6da2f07ce5e3702e0033'
+cask :v1 => 'qiyimedia' do
+  version :latest
+  sha256 :no_check
 
   url 'http://static.qiyi.com/ext/common/QIYImedia_Mac_5.dmg'
+  name '爱奇艺视频'
   homepage 'http://www.iqiyi.com'
+  license :gratis
 
-  link '爱奇艺视频.app'
+  app '爱奇艺.app'
+
+  zap :delete => [
+                  '~/Library/Containers/com.iqiyi.yingyin',
+                 ]
 end

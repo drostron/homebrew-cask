@@ -1,9 +1,11 @@
-class MacsFanControl < Cask
-  version 'latest'
+cask :v1 => 'macs-fan-control' do
+  version :latest
   sha256 :no_check
 
   url 'http://www.crystalidea.com/downloads/macsfancontrol.zip'
+  name 'Macs Fan Control'
   homepage 'http://www.crystalidea.com/macs-fan-control'
+  license :gratis
 
-  link 'Macs Fan Control.app'
+  app 'Macs Fan Control.app'
 end

@@ -1,10 +1,12 @@
-class Ctivo < Cask
-  version '2.2'
-  sha256 '50d8b6319039a5c1c6cac400706d3c59b9f90501bbc91283ca0157e4a2b68144'
+cask :v1 => 'ctivo' do
+  version '2.4.0'
+  sha256 'a6a310d301de327c6681121c62e439a9d4fc239568273cca3392b8fed1ccbb42'
 
-  url 'https://github.com/dscottbuch/cTiVo/releases/download/v2.2.451/cTiVo_2.2.451.zip'
-  appcast 'https://github.com/dscottbuch/cTiVo/blob/master/update/sparklecast.xml'
+  url "https://github.com/dscottbuch/cTiVo/releases/download/#{version}/cTiVo.zip"
+  appcast 'https://github.com/dscottbuch/cTiVo/releases.atom'
+  name 'cTiVo'
   homepage 'https://github.com/dscottbuch/cTiVo'
+  license :oss
 
-  link 'cTiVo.app'
+  app 'cTiVo.app'
 end

@@ -1,12 +1,16 @@
-class Basictex < Cask
-  version '20140525'
-  sha256 '574132bcde10221c8e3be1f6ac27eee84393092dae96928bb70fc6cb6e27f9cf'
+cask :v1 => 'basictex' do
+  version :latest
+  sha256 :no_check
 
-  url 'http://mirror.ctan.org/systems/mac/mactex/basictex20140525.pkg'
-  homepage 'http://www.tug.org/mactex/morepackages.html'
+  # ctan.org is the official download host per the vendor homepage
+  url 'http://mirror.ctan.org/systems/mac/mactex/BasicTeX.pkg'
+  name 'BasicTeX'
+  homepage 'https://www.tug.org/mactex/morepackages.html'
+  license :oss
 
-  install 'mactex-basic.pkg'
-  uninstall :pkgutil => 'org.tug.mactex.basictex2014'
+  pkg 'BasicTeX.pkg'
+
+  uninstall :pkgutil => 'org.tug.mactex.basictex2015'
   caveats do
     path_environment_variable '/usr/texbin'
   end

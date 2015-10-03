@@ -1,9 +1,17 @@
-class Kindle < Cask
-  version '1.10.6 (40499)'
-  sha256 '07d874de8e8d63fac7489eaf41271dcf12c64cb6fd6eb7eb6a9ceb6ab901938c'
+cask :v1 => 'kindle' do
+  version '40961'
+  sha256 '5036fef92ccb2334afd5c3e6c92ae56dccd5d9d120c005264044fa64147ff538'
 
-  url 'http://kindleformac.amazon.com/40499/KindleForMac.dmg'
-  homepage 'http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000464931'
+  url "http://kindleformac.amazon.com/#{version}/KindleForMac.dmg"
+  name 'Kindle for Mac'
+  homepage 'https://www.amazon.com/gp/digital/fiona/kcp-landing-page'
+  license :gratis
 
-  link 'Kindle.app'
+  app 'Kindle.App'
+
+  zap :delete => [
+                  '~/Library/Preferences/com.amazon.Kindle.plist',
+                  '~/Library/Application Support/Kindle/',
+                  '~/Library/Saved Application State/com.amazon.Kindle.savedState/',
+                 ]
 end

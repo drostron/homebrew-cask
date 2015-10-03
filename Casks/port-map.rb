@@ -1,10 +1,15 @@
-class PortMap < Cask
-  version '1.3.1-r46'
-  sha256 '50e29f121139ee2f68ad978cb3921ef52f2dbfb5a0131c417516e4e5f1fa64af'
+cask :v1 => 'port-map' do
+  version :latest
+  sha256 :no_check
 
-  url 'https://tcmportmapper.googlecode.com/files/PortMap-1.3.1-r46.zip'
-  appcast 'http://www.codingmonkeys.de/portmap/appcast.rss'
+  url 'http://www.codingmonkeys.de/portmap/download'
+  appcast 'http://www.codingmonkeys.de/portmap/appcast.rss',
+          :sha256 => 'c74b6bc407fe3a5daea1f3be09deabef3590fa5dc63c8ed32062f97d8bf5aa79'
+  name 'Port Map'
   homepage 'http://www.codingmonkeys.de/portmap'
+  license :mit
 
-  link 'Port Map.app'
+  depends_on :macos => '>= :tiger'
+
+  app 'Port Map.app'
 end

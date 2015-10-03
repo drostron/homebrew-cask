@@ -1,9 +1,12 @@
-class PgCommander < Cask
-  version '1.4.2'
-  sha256 'e998d9de270f61a21f008815079664d12998d0471ac92b66ceca5c862271fd92'
+cask :v1 => 'pg-commander' do
+  version '1.5.6'
+  sha256 '6793dc4b3c6b5fd77b615ae9eb29783d17d264b35f765793f938cef4eb60a852'
 
-  url 'https://eggerapps.at/pgcommander/download/pgcommander-1.4.2.zip'
-  homepage 'http://eggerapps.at/pgcommander/'
+  # amazonaws.com is the official download host per the vendor homepage
+  url "https://s3-eu-west-1.amazonaws.com/eggerapps.at/pgcommander/download/pgcommander-#{version}.zip"
+  name 'PG Commander'
+  homepage 'https://eggerapps.at/pgcommander/'
+  license :commercial
 
-  link 'PG Commander.app'
+  app 'PG Commander.app'
 end

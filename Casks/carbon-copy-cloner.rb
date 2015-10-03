@@ -1,10 +1,13 @@
-class CarbonCopyCloner < Cask
-  version '3.5.4'
-  sha256 '93ec1d88dedadb5c8d88ed454a363f8e62a5e9908014e9e5a572830a0b670174'
+cask :v1 => 'carbon-copy-cloner' do
+  version :latest
+  sha256 :no_check
 
-  url 'http://files.bombich.com/ccc-3.5.4.zip'
-  appcast 'http://www.bombich.com/software/updates/ccc.php'
-  homepage 'http://bombich.com/'
+  url 'https://www.bombich.com/software/download_ccc.php?v=latest&l=alternate'
+  appcast 'https://www.bombich.com/software/updates/ccc.php',
+          :sha256 => 'ec02ebdd3e4bee0527d46e8256372249780fb1a4fb93ddb782e9da87787bbdff'
+  name 'Carbon Copy Cloner'
+  homepage 'https://bombich.com/'
+  license :commercial
 
-  link 'Carbon Copy Cloner.app'
+  app 'Carbon Copy Cloner.app'
 end

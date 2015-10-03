@@ -1,9 +1,11 @@
-class Torustrooper < Cask
-  version '0.22.2'
-  sha256 '39b188107620c58f4a60f2f24d01f39ab87d46655203f4bcfe97d3a6fa5b7b3e'
+cask :v1 => 'torustrooper' do
+  version :latest
+  sha256 :no_check
 
-  url 'https://workram.com/archives/TorusTrooperOSX0.22.2.dmg'
+  url 'https://workram.com/downloads.php?f=TorusTrooper', :referer => 'https://workram.com/games'
+  name 'Torus Trooper'
   homepage 'http://workram.com/games/'
+  license :unknown    # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
 
-  link 'TorusTrooper.app'
+  app 'TorusTrooper.app'
 end

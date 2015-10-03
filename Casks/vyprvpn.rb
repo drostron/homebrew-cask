@@ -1,9 +1,11 @@
-class Vyprvpn < Cask
-  version '2.3.3.1851'
-  sha256 '598967057d8e932bb4e2b332c0664ce31b708ceb36b89bae4a8c2a0c07ea03ec'
+cask :v1 => 'vyprvpn' do
+  version '2.7.5.3042'
+  sha256 '7a5caf62bad58ed52715de9e9a4f69a901ee70ae98bbc7432fc2ae4e34cc70d4'
 
-  url 'https://www.goldenfrog.com/downloads/vyprvpn/desktop/mac/production/2.3.3.1851/VyprVPN_v2.3.3.1851.dmg'
-  homepage 'http://www.goldenfrog.com/vyprvpn'
+  url "https://www.goldenfrog.com/downloads/vyprvpn/desktop/mac/production/#{version}/VyprVPN_v#{version}.dmg"
+  name 'VyprVPN'
+  homepage 'https://www.goldenfrog.com/vyprvpn'
+  license :commercial
 
-  link 'VyprVPN.app'
+  app 'VyprVPN.app'
 end

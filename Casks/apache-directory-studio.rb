@@ -1,9 +1,14 @@
-class ApacheDirectoryStudio < Cask
-  version '2.0.0.v20130628'
-  sha256 '60914cc67f893afdc8bf537fa67a48cb7cd96357e7d28595a2c22a74a19f02e3'
+cask :v1 => 'apache-directory-studio' do
+  version '2.0.0.v20150606-M9'
+  sha256 '9eca84d081a500fec84943600723782a6edac05eeab6791fe8a964e49c6d834e'
 
-  url 'http://mirrors.sonic.net/apache//directory/studio/dist/2.0.0.v20130628/ApacheDirectoryStudio-macosx-x86_64-2.0.0.v20130628.dmg'
-  homepage 'http://directory.apache.org/studio/'
+  # apache.org is the official download host per the vendor homepage
+  url "http://www.us.apache.org/dist/directory/studio/#{version}/ApacheDirectoryStudio-#{version}-macosx.cocoa.x86_64.tar.gz"
+  name 'Apache Directory Studio'
+  homepage 'https://directory.apache.org/studio/'
+  license :apache
 
-  link 'Apache Directory Studio.app'
+  app 'ApacheDirectoryStudio.app'
+
+  zap :delete => '~/.ApacheDirectoryStudio'
 end

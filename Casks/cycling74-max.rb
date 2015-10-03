@@ -1,11 +1,13 @@
-class Cycling74Max < Cask
-  version '6.1.7-140421'
-  sha256 'deb3070e0161e074c7ee91861e06cfeec2c1dc85eb715e476797d026821c32c9'
+cask :v1 => 'cycling74-max' do
+  version '7.0.5_150727'
+  sha256 '61d5d5e0a4ca4d56a1bffbc49343b5624c02f0a707bfed943e8c0eb15c91c557'
 
-  url 'https://akiaj5esl75o5wbdcv2a-maxmspjitter.s3.amazonaws.com/Max617_140421.dmg'
-  homepage 'http://cycling74.com'
+  # amazonaws.com is the official download host per the vendor homepage
+  url "https://akiaj5esl75o5wbdcv2a-maxmspjitter.s3.amazonaws.com/Max#{version.delete('.')}.dmg"
+  name 'Max'
+  homepage 'https://cycling74.com/'
+  license :commercial
+  tags :vendor => 'Cycling ‘74'
 
-  install 'Max 6.1 Installer.pkg'
-  uninstall :pkgutil => 'com.cycling74.Max*',
-            :files   => '/Applications/Max 6.1'
+  app 'Max.app'
 end

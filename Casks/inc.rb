@@ -1,9 +1,12 @@
-class Inc < Cask
-  version 'latest'
+cask :v1 => 'inc' do
+  version :latest
   sha256 :no_check
 
+  # amazonaws.com is the official download host per the vendor homepage
   url 'http://inc-static.kippt.com.s3.amazonaws.com/apps/inc-osx.zip'
-  homepage 'https://sendtoinc.com/apps/'
+  name 'Inc'
+  homepage 'http://sendtoinc.com/apps/'
+  license :gratis
 
-  link 'Inc.app'
+  app 'Inc.app'
 end

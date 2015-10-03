@@ -1,10 +1,13 @@
-class Gnucash < Cask
-  version '2.6.3-1'
-  sha256 '58d0a9c95cd1835eeafc0b15b965d7aac9e71980b2ba7a7aac5707445fa17828'
+cask :v1 => 'gnucash' do
+  version '2.6.7-1'
+  sha256 'd0ed3339ac2f483219aab0b2c3317116b8ddb3a36e86722295899f2eeabbe74e'
 
-  url 'https://downloads.sourceforge.net/sourceforge/gnucash/Gnucash-Intel-2.6.3-1.dmg'
+  # sourceforge.net is the official download host per the vendor homepage
+  url "http://downloads.sourceforge.net/project/gnucash/gnucash%20(stable)/#{version[/[^-]+/]}/Gnucash-Intel-#{version}.dmg"
+  name 'GnuCash'
   homepage 'http://www.gnucash.org'
+  license :gpl
 
-  link 'Gnucash.app'
-  link 'FinanceQuote Update.app'
+  app 'Gnucash.app'
+  app 'FinanceQuote Update.app'
 end

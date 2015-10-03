@@ -1,9 +1,13 @@
-class FramerStudio < Cask
-  version '1.0.140'
-  sha256 '27148a31f0745cf4e8680a97b3c7063eb10d0dd3aa8cddbc844240e8aa749d2a'
+cask :v1 => 'framer-studio' do
+  version '1.11.188'
+  sha256 'b1fff971456a4af5ad88661344dbad079d5ba08e25dfc2c6f252824d1916206b'
 
-  url 'http://framerstudio-update.s3-website-us-east-1.amazonaws.com/static/downloads/Framer%20Studio-1.0.140.tar.gz'
+  url "http://studio.update.framerjs.com/static/downloads/Framer%20Studio-#{version}.zip"
+  name 'Framer Studio'
+  appcast 'http://studio.update.framerjs.com/appcast.xml',
+          :sha256 => '2d6e82bb3d57ecf9d7dcb339efea422f6feaed924b73a15b550b69f07b8b9172'
   homepage 'http://framerjs.com/'
+  license :commercial
 
-  link 'Framer Studio.app'
+  app 'Framer Studio.app'
 end

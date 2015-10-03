@@ -1,9 +1,11 @@
-class Groovesquid < Cask
-  version 'latest'
+cask :v1 => 'groovesquid' do
+  version :latest
   sha256 :no_check
 
-  url 'http://groovesquid.com/download.php?file=Groovesquid.dmg'
-  homepage 'http://groovesquid.com/'
+  url 'https://groovesquid.com/download.php?file=Groovesquid.dmg'
+  name 'Groovesquid'
+  homepage 'https://groovesquid.com/'
+  license :gratis
 
-  link 'Groovesquid.app'
+  app 'Groovesquid.app'
 end

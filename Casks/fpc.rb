@@ -1,10 +1,14 @@
-class Fpc < Cask
-  version '2.6.2'
-  sha256 '09b0964c6fb11eaa04e0fa065e479674384aab81e69e377bb1e030ec1d3398a6'
+cask :v1 => 'fpc' do
+  version '2.6.4'
+  sha256 '0ae534c83c2cfd25f4bfc856dd54e5f1f89c3f5e5cf7089bd0b62be2f5b9a83b'
 
-  url 'https://downloads.sourceforge.net/freepascal/fpc-2.6.2.intel-macosx.dmg'
+  # sourceforge.net is the official download host per the vendor homepage
+  url "http://downloads.sourceforge.net/freepascal/fpc-#{version}.intel-macosx.dmg"
+  name 'Free Pascal'
   homepage 'http://www.freepascal.org/'
+  license :gpl
 
-  install 'fpc-2.6.2rc1.intel-macosx.pkg'
+  pkg "fpc-#{version}.intel-macosx.pkg"
+
   uninstall :pkgutil => 'org.freepascal.freePascalCompiler262.fpcinst386.pkg'
 end

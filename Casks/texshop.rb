@@ -1,10 +1,13 @@
-class Texshop < Cask
-  version '3.38'
-  sha256 'a1e00f6c2a33087705f9492269245ac3b2fe83e800995c80eec558c2936f0f42'
+cask :v1 => 'texshop' do
+  version :latest
+  sha256 :no_check
 
-  url 'http://pages.uoregon.edu/koch/texshop/texshop-64/texshop338.zip'
-  appcast 'http://pages.uoregon.edu/koch/texshop/texshop-64/texshopappcast.xml'
+  url 'http://pages.uoregon.edu/koch/texshop/texshop-64/texshop.zip'
+  appcast 'http://pages.uoregon.edu/koch/texshop/texshop-64/texshopappcast.xml',
+          :sha256 => 'c40ae2cd48a38ab90fb5e3e9ec92e8769be03e13dfc2a6246c63ab8f94f51b10'
+  name 'TeXShop'
   homepage 'http://pages.uoregon.edu/koch/texshop'
+  license :gpl
 
-  link 'TexShop.app'
+  app 'TexShop.app'
 end

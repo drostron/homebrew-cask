@@ -1,9 +1,11 @@
-class Comicbookloversync < Cask
-  version 'latest'
+cask :v1 => 'comicbookloversync' do
+  version :latest
   sha256 :no_check
 
   url 'https://www.bitcartel.com/downloads/comicbookloversync.zip'
-  homepage 'http://www.bitcartel.com/comicbooklover'
+  name 'ComicBookLover Sync'
+  homepage 'https://www.bitcartel.com/comicbooklover/'
+  license :gratis
 
-  link 'ComicBookLoverSync.app'
+  app 'ComicBookLoverSync.app'
 end

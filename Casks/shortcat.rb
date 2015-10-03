@@ -1,10 +1,14 @@
-class Shortcat < Cask
-  version '0.7.1'
-  sha256 '9d7c2b0f2ec6ce03d0ccdf5ad15db3136ae344d26c09d1e5a8753e7b5698dc1a'
+cask :v1 => 'shortcat' do
+  version '0.7.6'
+  sha256 'b78f20a94e0270ea1b0376677c07559db0e91c4ac53227b588adee46f971be1b'
 
   url "https://files.shortcatapp.com/v#{version}/Shortcat.zip"
-  appcast 'https://shortcatapp.com/updates/appcast.xml'
-  homepage 'http://shortcatapp.com/'
+  appcast 'https://shortcatapp.com/updates/appcast.xml',
+          :sha256 => '38804c1de1cceb99418fb8393b57a99d78815c4d87dd850fe6b9acb0a4dc01de'
+  name 'Shortcat'
+  homepage 'https://shortcatapp.com/'
+  license :commercial
+  tags :vendor => 'Sproutcube'
 
-  link 'Shortcat.app'
+  app 'Shortcat.app'
 end

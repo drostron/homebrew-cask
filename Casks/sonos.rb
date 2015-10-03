@@ -1,9 +1,11 @@
-class Sonos < Cask
-  version '5.0'
-  sha256 'cd38c3247f16580d2af3d2cb5a9a96ea3652e910bae4526957c05f4d7a9a62e2'
+cask :v1 => 'sonos' do
+  version :latest
+  sha256 :no_check
 
-  url 'http://update.sonos.com/software/mac/mdcr/SonosDesktopController50.dmg'
+  url 'http://www.sonos.com/redir/controller_software_mac'
+  name 'Sonos'
   homepage 'http://www.sonos.com/'
+  license :unknown    # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
 
-  link 'Sonos.app'
+  app 'Sonos.app'
 end

@@ -1,9 +1,13 @@
-class Darktable < Cask
-  version '1.4.2'
-  sha256 '27b03c2ef1bfe8a66665e252d55746abd9b8a29b7f5e00ec1f646a3f22e7551a'
+cask :v1 => 'darktable' do
+  version '1.6.8'
+  sha256 'ec4b1ad797ea7a483d7fc94724de99a1d18da7d7f75071220e1d313e0a4d8a53'
 
-  url "https://downloads.sourceforge.net/sourceforge/darktable/darktable-#{version}.dmg"
+  # github.com is the official download host per the vendor homepage
+  url "https://github.com/darktable-org/darktable/releases/download/release-#{version}/darktable-#{version}.dmg"
+  appcast 'https://github.com/darktable-org/darktable/releases.atom'
+  name 'darktable'
   homepage 'http://www.darktable.org/'
+  license :gpl
 
-  link 'darktable.app'
+  app 'darktable.app'
 end

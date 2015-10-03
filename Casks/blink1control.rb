@@ -1,9 +1,13 @@
-class Blink1control < Cask
-  version '1.91'
-  sha256 'fc3624a041f561f086cdce95bd70470b072c9b586e9ee1247d88b78e6abce094'
+cask :v1 => 'blink1control' do
+  version '1.98'
+  sha256 '49c680f3ec174662cc00a4f4649074a891e8fc55b82aec284c5aade0efb44ce1'
 
-  homepage 'http://blink1.thingm.com/'
-  url 'https://github.com/todbot/blink1/releases/download/v1.91/Blink1Control-mac.zip'
+  # github.com is the official download host per the vendor homepage
+  url "https://github.com/todbot/blink1/releases/download/v#{version}/Blink1Control-mac.zip"
+  appcast 'https://github.com/todbot/blink1/releases.atom'
+  name 'Blink1Control'
+  homepage 'https://blink1.thingm.com/'
+  license :cc
 
-  link 'Blink1Control.app'
+  app 'Blink1Control.app'
 end

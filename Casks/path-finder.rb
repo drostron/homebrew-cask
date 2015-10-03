@@ -1,14 +1,20 @@
-class PathFinder < Cask
-  version 'latest'
+cask :v1 => 'path-finder' do
+  version :latest
   sha256 :no_check
 
-  url 'http://get.cocoatech.com/PF6_LION.zip'
+  url 'http://get.cocoatech.com/PF7.zip'
+  name 'Path Finder'
   homepage 'http://www.cocoatech.com/pathfinder/'
+  license :commercial
 
-  link 'Path Finder.app'
+  app 'Path Finder.app'
 
-  after_install do
-    # Don't ask to move the app bundle to /Applications
-    system '/usr/bin/defaults', 'write', 'com.cocoatech.PathFinder', 'kNTMoveToApplicationsFolderAlertSuppress', '-bool', 'true'
+  postflight do
+    suppress_move_to_applications :key => 'kNTMoveToApplicationsFolderAlertSuppress'
   end
+
+  zap :delete => [
+                  '~/Library/Preferences/com.cocoatech.PathFinder.plist',
+                  '~/Library/Application Support/Path Finder',
+                 ]
 end

@@ -1,14 +1,17 @@
-class MacupdateDesktop < Cask
-  version '6.0.1'
-  sha256 '30014e0bb75c7b1b74a70107ce24ccebef7db77a404411b2fa1fd1aee58f0477'
+cask :v1 => 'macupdate-desktop' do
+  version '6.0.9'
+  sha256 '82f8b1bc8d9ed5d3881a8ca618df146fbb82634ecca4e5aac8f96ad65389e7c4'
 
+  url "http://cdn.macupdate.com/MacUpdateDesktop#{version}.zip"
+  appcast 'http://www.macupdate.com/desktop/updates.xml',
+          :sha256 => 'cecc073acecb3a7221854fae2f629759fb59de2de2e161bf68c7f1c9800d9ca2'
+  name 'MacUpdate Desktop'
   homepage 'https://www.macupdate.com/desktop'
-  url "http://dl.macupdate.com/MacUpdateDesktop#{version}.zip"
-  appcast 'https://www.macupdate.com/desktop/updates.xml'
+  license :freemium
 
-  link 'MacUpdate Desktop.app'
-  after_install do
-    # Don't ask to move the app bundle to /Applications
-    system '/usr/bin/defaults', 'write', 'com.macupdate.desktop6', 'moveToApplicationsFolderAlertSuppress', '-bool', 'true'
+  app 'MacUpdate Desktop.app'
+
+  postflight do
+    suppress_move_to_applications
   end
 end

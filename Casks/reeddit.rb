@@ -1,9 +1,13 @@
-class Reeddit < Cask
-  version '1.9'
-  sha256 '7bb465aa5a8c80adfb6f73430caee9cc977afae77d2a55be97371b9516aa01a7'
+cask :v1 => 'reeddit' do
+  version '1.9.6'
+  sha256 'b3e6af1576994b199642d832142cff3fb49713006ab9e0f87e1cbf9ded32cca9'
 
-  url 'https://github.com/berbaquero/Reeddit-app/releases/download/v1.9/Reeddit.app.zip'
+  # github.com is the official download host per the vendor homepage
+  url "https://github.com/berbaquero/Reeddit-app/releases/download/v#{version}/Reeddit.app.zip"
+  appcast 'https://github.com/berbaquero/Reeddit-app/releases.atom'
+  name 'Reeddit'
   homepage 'http://mac.reedditapp.com'
+  license :mit
 
-  link 'Reeddit.app'
+  app 'Reeddit.app'
 end

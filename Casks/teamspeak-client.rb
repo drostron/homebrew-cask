@@ -1,10 +1,12 @@
-class TeamspeakClient < Cask
-  # note: version 3.0.15 causes hdiutil to segfault
-  version '3.0.14'
-  sha256 '305f1d33df4bff324c232811253dd65b0caca477fc9196a1e82cbc6c6796e680'
+cask :v1 => 'teamspeak-client' do
+  version '3.0.17'
+  sha256 '0ceec488700527472b16d92b3a73dc2f6170865106687535bcbf589b19b7d556'
 
-  url 'http://dl.4players.de/ts/releases/3.0.14/TeamSpeak3-Client-macosx-3.0.14.dmg'
+  # 4players.de is the official download host per the vendor homepage
+  url "http://dl.4players.de/ts/releases/#{version}/TeamSpeak3-Client-macosx-#{version}.dmg"
+  name 'TeamSpeak Client'
   homepage 'http://www.teamspeak.com/'
+  license :unknown    # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
 
-  link 'TeamSpeak 3 Client.app'
+  app 'TeamSpeak 3 Client.app'
 end

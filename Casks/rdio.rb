@@ -1,10 +1,12 @@
-class Rdio < Cask
-  version 'latest'
+cask :v1 => 'rdio' do
+  version :latest
   sha256 :no_check
 
   url 'https://www.rdio.com/media/static/desktop/mac/Rdio.dmg'
-  appcast 'http://www.rdio.com/media/static/desktop/mac/appcast.xml'
-  homepage 'http://www.rdio.com'
+  appcast 'https://www.rdio.com/media/static/desktop/mac/appcast.xml'
+  name 'Rdio'
+  homepage 'https://www.rdio.com'
+  license :gratis
 
-  link 'Rdio.app'
+  app 'Rdio.app'
 end

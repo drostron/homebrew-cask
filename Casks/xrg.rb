@@ -1,9 +1,11 @@
-class Xrg < Cask
-  version '1.7.3'
-  sha256 '972ee45e202dee87aa5a696d2393f5eece21c8e6a54368ab6fefb6a371187063'
+cask :v1 => 'xrg' do
+  version '2.0.0'
+  sha256 '9c963b1ab5ddd4dba49e0e085e63e84b31613eff3e155f5e3dbb55c0abcfbe46'
 
-  url 'http://download.gauchosoft.com/xrg/XRG-release-1.7.3.zip'
+  url "http://download.gauchosoft.com/xrg/XRG-release-#{version}.zip"
+  name 'XRG'
   homepage 'http://www.gauchosoft.com/Products/XRG/'
+  license :unknown    # todo: change license and remove this comment; ':unknown' is a machine-generated placeholder
 
-  link 'XRG.app'
+  app 'XRG.app'
 end

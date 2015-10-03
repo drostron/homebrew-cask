@@ -1,10 +1,12 @@
-class Folx < Cask
-  version 'latest'
-  sha256 :no_check
+cask :v1 => 'folx' do
+  version '4.2.13332'
+  sha256 '5664c147dc0b848a2705659a206b02293e4b97f13dc1b5976a6e3435f1c41708'
 
-  url 'http://mac.eltima.com/download/downloader_mac.dmg'
-  appcast 'http://mac.eltima.com/download/folx-update/folx3.xml'
-  homepage 'http://mac.eltima.com/de/download-manager.html'
+  url "http://www.eltima.com/download/folx-update/downloader_mac_#{version}.dmg"
+  appcast 'http://mac.eltima.com/download/folx-updater/folx.xml'
+  name 'Folx'
+  homepage 'http://mac.eltima.com/download-manager.html'
+  license :freemium
 
-  link 'Folx 3.app'
+  app 'Folx.app'
 end

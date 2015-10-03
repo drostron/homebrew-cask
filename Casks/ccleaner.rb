@@ -1,9 +1,19 @@
-class Ccleaner < Cask
-  version '1.08.302'
-  sha256 'f43c546ca73873dd0d5abc4d2563aa6400402dcced2b000517eb19c1fbe353d0'
+cask :v1 => 'ccleaner' do
+  version '1.10.335'
+  sha256 '9f02434fb991c78634fd1a6a2a3819ecedd567fbe07fe7eec96bbf5628f6eadd'
 
-  url 'http://download.piriform.com/mac/CCMacSetup108.dmg'
-  homepage 'http://www.piriform.com/ccleaner'
+  url "http://download.piriform.com/mac/CCMacSetup#{version.sub(%r{^(\d+)\.(\d+).*},'\1\2')}.dmg"
+  name 'CCleaner'
+  homepage 'https://www.piriform.com/ccleaner'
+  license :freemium
+  tags :vendor => 'Piriform'
 
-  link 'CCleaner.app'
+  zap :delete => [
+    '~/Library/Application Support/CCleaner',
+    '~/Library/Caches/com.piriform.ccleaner',
+    '~/Library/Preferences/com.piriform.ccleaner.plist',
+    '~/Library/Saved Application State/com.piriform.ccleaner.savedState'
+  ]
+
+  app 'CCleaner.app'
 end

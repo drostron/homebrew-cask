@@ -1,9 +1,13 @@
-class BitcoinCore < Cask
-  version '0.9.2.1'
-  sha256 'b50c966932474a79e869dee4bb84dd155c98c9f458a4d31bcfbee9481ba3c6b4'
+cask :v1 => 'bitcoin-core' do
+  version '0.11.0'
+  sha256 'fa457e65662b73f3d33235c012d4bec181e2919dd2a400afaa0ff9ab4927fb89'
 
-  url 'https://bitcoin.org/bin/0.9.2.1/bitcoin-0.9.2.1-osx.dmg'
+  url "https://bitcoin.org/bin/bitcoin-core-#{version}/bitcoin-#{version}-osx.dmg"
+  name 'Bitcoin'
+  name 'Bitcoin Core'
   homepage 'https://bitcoin.org/'
+  license :mit
 
-  link 'Bitcoin-Qt.app', :target => 'Bitcoin Core.app'
+  # Renamed for consistency: app name is different in the Finder and in a shell.
+  app 'Bitcoin-Qt.app', :target => 'Bitcoin Core.app'
 end

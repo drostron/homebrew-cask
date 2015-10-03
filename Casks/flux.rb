@@ -1,15 +1,18 @@
-class Flux < Cask
-  version 'latest'
-  sha256 :no_check
+cask :v1 => 'flux' do
+  version '36-3'
+  sha256 '439b83c1886e8dee2fb79f9abb047cddf0fcd7dae7d6b68308a65e3954d63333'
 
-  url 'https://justgetflux.com/mac/Flux.zip'
+  url "https://justgetflux.com/mac/Flux#{version}.zip"
   appcast 'https://justgetflux.com/mac/macflux.xml'
-  homepage 'http://justgetflux.com'
+  name 'f.lux'
+  homepage 'https://justgetflux.com/'
+  license :gratis
 
-  link 'Flux.app'
+  app 'Flux.app'
 
-  after_install do
-    # Don't ask to move the app bundle to /Applications
-    system '/usr/bin/defaults', 'write', 'org.herf.Flux', 'moveToApplicationsFolderAlertSuppress', '-bool', 'true'
+  postflight do
+    suppress_move_to_applications
   end
+
+  zap :delete => '~/Library/Preferences/org.herf.Flux.plist'
 end

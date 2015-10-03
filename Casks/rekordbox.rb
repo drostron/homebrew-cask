@@ -1,11 +1,14 @@
-class Rekordbox < Cask
-  version '3.0.0_2369'
-  sha256 '5e3887ab45ea780307e6fabb6ff84cb836d60ad42ed1030df3e91010d994ba31'
+cask :v1 => 'rekordbox' do
+  version '3.2.2'
+  sha256 'f12cafb0764177bafbb267342c3bd367572c42cc9e340081a0e84ef2bf7ed433'
 
-  url 'http://dl.pioneer.jp/dl/rekordbox/mac/Install_rekordbox_3_0_0_2369.pkg.zip'
+  url "http://rekordbox.com/_app/files/Install_rekordbox_#{version.gsub('.','_')}.pkg.zip"
+  name 'rekordbox'
   homepage 'http://rekordbox.com/en/'
+  license :closed
 
-  install 'Install_rekordbox_3_0_0_2369.pkg'
-  uninstall :pkgutil => 'com.pioneer.rekordbox.3.*',
-    :files => '/Applications/rekordbox 3/'
+  pkg "Install_rekordbox_#{version.gsub('.','_')}.pkg"
+
+  uninstall :pkgutil => 'com.pioneer.rekordbox.*',
+            :delete  => '/Applications/rekordbox 3/'
 end

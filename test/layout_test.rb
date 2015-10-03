@@ -14,6 +14,9 @@ describe "Repo layout" do
                     ..
                     .DS_Store
                     .bundle
+                    .ruby-version
+                    .rubocop_todo.yml
+                    coverage
                    }
 
   # the developer has hopefully gitignored these
@@ -33,8 +36,12 @@ describe "Repo layout" do
                     }
 
   TOPLEVEL_FILES = %w{
+                      .editorconfig
+                      .gitattributes
                       .gitignore
                       .rspec
+                      .rubocop.yml
+                      .simplecov
                       .travis.yml
                       CONDUCT.md
                       CONTRIBUTING.md

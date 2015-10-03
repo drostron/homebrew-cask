@@ -1,13 +1,22 @@
-class Pycharm < Cask
-  version '3.4.1'
-  sha256 'f2af3859b0376927f591d5eac3b8d2c8196d712af811f27cc269965a03324a78'
+cask :v1 => 'pycharm' do
+  version '4.5.4'
+  sha256 '4bc042c0726fbe4ac738dd34cc3a59d52b14404ae5d32420b736ada57737017b'
 
-  url "http://download.jetbrains.com/python/pycharm-professional-#{version}.dmg"
-  homepage 'http://www.jetbrains.com/pycharm/'
+  url "https://download.jetbrains.com/python/pycharm-professional-#{version}.dmg"
+  name 'PyCharm'
+  homepage 'https://www.jetbrains.com/pycharm/'
+  license :commercial
 
-  link 'PyCharm.app'
+  app 'PyCharm.app'
 
-  after_install do
-    system "/usr/libexec/PlistBuddy", "-c", "Set :JVMOptions:JVMVersion 1.6+", "#{destination_path}/PyCharm.app/Contents/Info.plist"
-  end
+  caveats <<-EOS.undent
+    #{token} requires Java 6 like any other IntelliJ-based IDE.
+    You can install it with
+
+      brew cask install caskroom/homebrew-versions/java6
+
+    The vendor (JetBrains) doesn't support newer versions of Java (yet)
+    due to several critical issues, see details at
+    https://intellij-support.jetbrains.com/entries/27854363
+  EOS
 end

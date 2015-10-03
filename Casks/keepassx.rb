@@ -1,16 +1,13 @@
-class Keepassx < Cask
-  version '2.0-alpha6'
-  sha256 '55aeaba8257d728b62ba173ba56df27897552737a556dc1e4e4ed6dcd3d6dd8a'
+cask :v1 => 'keepassx' do
+  version '2.0-beta2'
+  sha256 'ae4a40796b12496440aa6781534930f0f80ec175cd6ff03daf3481ad6e013f50'
 
-  url 'https://www.keepassx.org/dev/attachments/download/72/KeePassX-2.0-alpha6.dmg'
+  url "https://www.keepassx.org/dev/attachments/download/117/KeePassX-#{version}.dmg"
+  name 'KeePassX'
   homepage 'http://www.keepassx.org'
+  license :bsd
 
-  link 'KeePassX.app'
-  # This caveat added Mar 2014.  OK to delete it after 3-4 months.
-  caveats <<-EOS.undent
-    If you are upgrading from an older version of KeePassX, you must
-    manually import the old-format database via menu item
+  app 'KeePassX.app'
 
-      Database -> Import KeePass 1 database
-  EOS
+  zap :delete => '~/.keepassx'
 end

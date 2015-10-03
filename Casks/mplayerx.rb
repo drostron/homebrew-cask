@@ -1,9 +1,22 @@
-class Mplayerx < Cask
-  version '1.0.22.1'
-  sha256 '08ce85671814e65b8c7ec8438b85be593b6deaf7d5c3b242e686a6b0176a2c77'
+cask :v1 => 'mplayerx' do
+  version '1.1.0-1854'
+  sha256 '6a32302dc47e3776039cbcdf68726ebabac3b8a07933d01a48bc3d2ad3827aaa'
 
-  url 'https://downloads.sourceforge.net/project/mplayerx-osx/MPlayerX-1.0.22.1.zip'
+  # sourceforge.net is the official download host per the vendor homepage
+  url "http://downloads.sourceforge.net/project/mplayerx-osx/MPlayerX-#{version}.zip"
+  appcast 'https://raw.githubusercontent.com/niltsh/MPlayerX-Deploy/master/appcast.xml',
+          :sha256 => 'cc1e62d278e41aa62080f5065608491ef7dcecbc259e3b53ab446fa48f05033d'
+  name 'MPlayerX'
   homepage 'http://mplayerx.org/'
+  license :oss
 
-  link 'MPlayerX.app'
+  app 'MPlayerX.app'
+
+  zap :delete => [
+                  '~/.mplayer',
+                  '~/Library/Application Support/MPlayerX',
+                  '~/Library/Preferences/org.niltsh.MPlayerX.LSSharedFileList.plist',
+                  '~/Library/Preferences/org.niltsh.MPlayerX.plist',
+                  '~/Library/Caches/org.niltsh.MPlayerX'
+                 ]
 end

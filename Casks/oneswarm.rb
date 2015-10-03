@@ -1,9 +1,11 @@
-class Oneswarm < Cask
-  version 'latest'
+cask :v1 => 'oneswarm' do
+  version :latest
   sha256 :no_check
 
   url 'http://www.oneswarm.org/builds/OneSwarm.dmg'
+  name 'OneSwarm'
   homepage 'http://www.oneswarm.org/'
+  license :gpl
 
-  link 'OneSwarm.app'
+  app 'OneSwarm.app'
 end
